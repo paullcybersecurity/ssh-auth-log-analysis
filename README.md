@@ -35,14 +35,6 @@ grep -a "Accepted password" /var/log/auth.log
 sudo grep -a "Failed password" /var/log/auth.log | awk '{ print $ (NF -3) }' | sort |uniq -c**
 ```
 
-## Screenshots
-
-*(Add screenshots to `./screenshots/` and reference them here)*
-
-- `screenshots/hydra-attack-running.png` — Hydra brute-force in progress
-- `screenshots/auth-log-failed-attempts.png` — Failed login entries in auth.log
-- `screenshots/auth-log-success.png` — Successful login (if applicable)
-
 ## Findings / IOCs
 
 | Indicator | Value |
@@ -71,3 +63,12 @@ sudo grep -a "Failed password" /var/log/auth.log | awk '{ print $ (NF -3) }' | s
 
 - Automate detection with a script that alerts after 3 failed attempts from the same IP
 - Feed these logs into a SIEM (Wazuh) for centralized alerting
+
+## Screenshots
+![SSH sever setup, User created & active.](image1.png)
+![Hydra  brute-force attack in progress ](image2.png)
+![Hydra brute-force successful, SSH detailsacquired, SSH login successful](image3.png)
+![Failed login attempt in auth.log](image4.png)
+![Number of Failed attempt "28" being confirmed](image5.png)
+![Accepted password in auth.log](image6.png)
+![Attacker's IP etraction in auth.log](image7.png)
